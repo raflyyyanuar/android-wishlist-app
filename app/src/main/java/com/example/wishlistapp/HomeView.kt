@@ -1,6 +1,7 @@
 package com.example.wishlistapp
 
 import android.widget.Toast
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Scaffold
@@ -19,6 +21,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
@@ -89,7 +92,8 @@ fun WishItem(
             .padding(top = 8.dp, start = 8.dp, end = 8.dp)
             .clickable { onClick() },
         elevation = 10.dp,
-        backgroundColor = colorResource(id = R.color.dark_gray)
+        backgroundColor = colorResource(id = R.color.dark_gray),
+        shape = RoundedCornerShape(10.dp)
     ) {
         Column(
             modifier = Modifier
