@@ -3,10 +3,13 @@ package com.example.wishlistapp
 import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Scaffold
@@ -20,6 +23,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.wishlistapp.data.DummyWish
 import com.example.wishlistapp.data.Wish
 
 @Composable
@@ -56,14 +61,19 @@ fun HomeView() {
                     contentDescription = null
                 )
             }
-        }
+        },
+        backgroundColor = colorResource(id = R.color.black)
     ) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
         ) {
+            items(DummyWish.wishes) { wish ->
+                WishItem(wish) {
 
+                }
+            }
         }
     }
 }
@@ -79,14 +89,24 @@ fun WishItem(
             .padding(top = 8.dp, start = 8.dp, end = 8.dp)
             .clickable { onClick() },
         elevation = 10.dp,
-        backgroundColor = colorResource(id = R.color.white)
+        backgroundColor = colorResource(id = R.color.dark_gray)
     ) {
         Column(
             modifier = Modifier
-                .padding(4.dp)
+                .padding(12.dp)
         ) {
-            Text(wish.title, fontWeight = FontWeight.ExtraBold)
-            Text(wish.description)
+            Text(
+                wish.title, 
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 15.sp,
+                color = colorResource(id = R.color.white),
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                wish.description,
+                fontSize = 12.sp,
+                color = colorResource(id = R.color.white),
+            )
         }
     }
 }
