@@ -27,11 +27,15 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.wishlistapp.data.DummyWish
 import com.example.wishlistapp.data.Wish
 
 @Composable
-fun HomeView() {
+fun HomeView(
+    viewModel: WishViewModel,
+    navController: NavHostController,
+) {
     val context = LocalContext.current
     Scaffold(
         topBar = {
@@ -48,11 +52,7 @@ fun HomeView() {
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    Toast.makeText(
-                        context,
-                        "Add Button Clicked!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    navController.navigate(Screen.AddScreen.route)
                 },
                 modifier = Modifier
                     .padding(20.dp),
@@ -65,7 +65,7 @@ fun HomeView() {
                 )
             }
         },
-        backgroundColor = colorResource(id = R.color.black)
+//        backgroundColor = colorResource(id = R.color.black)
     ) {
         LazyColumn(
             modifier = Modifier

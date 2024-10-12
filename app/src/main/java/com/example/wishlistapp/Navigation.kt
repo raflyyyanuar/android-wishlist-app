@@ -1,6 +1,7 @@
 package com.example.wishlistapp
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -16,19 +17,17 @@ fun Navigation(
 ) {
     NavHost(navController, Screen.HomeScreen.route) {
         composable(Screen.HomeScreen.route) {
-            HomeView()
+            HomeView(
+                viewModel = viewModel,
+                navController = navController,
+            )
         }
-//        composable(Screen.CategoryDetailsScreen.route) {
-//            // Get from the PREVIOUS backstack the value of "category" key
-//            val category = navController
-//                .previousBackStackEntry         // get the PREVIOUS backstack
-//                ?.savedStateHandle              // through the saved state
-//                ?.get<Category>("category")     // get the value
-//                ?: Category("","","","")
-//
-//            CategoryDetailScreen(
-//                category = category
-//            )
-//        }
+        composable(Screen.AddScreen.route) { 
+            AddEditDetailView(
+                title = stringResource(id = R.string.add_wish),
+                viewModel = viewModel, 
+                navController = navController 
+            )
+        }
     }
 }
