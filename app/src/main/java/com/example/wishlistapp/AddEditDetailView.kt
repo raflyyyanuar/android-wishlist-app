@@ -37,7 +37,10 @@ fun AddEditDetailView(
     Scaffold(
         topBar = {
             AppBar(
-                title = title
+                title = title,
+                onBackNavClick = {
+                    navController.navigate(Screen.HomeScreen.route)
+                }
             )
         }
     ) {
