@@ -102,7 +102,7 @@ fun WishItem(
             Text(
                 wish.title, 
                 fontWeight = FontWeight.ExtraBold,
-                fontSize = 15.sp,
+                fontSize = 14.sp,
                 color = colorResource(id = R.color.white),
             )
             Spacer(modifier = Modifier.height(4.dp))
