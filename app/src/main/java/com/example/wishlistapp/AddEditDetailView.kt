@@ -39,7 +39,7 @@ fun AddEditDetailView(
             AppBar(
                 title = title,
                 onBackNavClick = {
-                    navController.navigate(Screen.HomeScreen.route)
+                    navController.navigateUp()
                 }
             )
         }

@@ -91,7 +91,7 @@ fun WishItem(
             .fillMaxWidth()
             .padding(top = 8.dp, start = 8.dp, end = 8.dp)
             .clickable { onClick() },
-        elevation = 10.dp,
+        elevation = 4.dp,
         backgroundColor = colorResource(id = R.color.dark_gray),
         shape = RoundedCornerShape(10.dp)
     ) {
