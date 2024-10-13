@@ -118,12 +118,12 @@ fun AddEditDetailView(
                     else {
                         viewModel.updateWish(
                             Wish(
+                                id = id,
                                 title = viewModel.wishTitleState.trim(),
                                 description = viewModel.wishDescriptionState.trim(),
                             )
                         )
                     }
-
                 }
                 else {
                     snackMessage.value = "Title or description can not be empty!"
