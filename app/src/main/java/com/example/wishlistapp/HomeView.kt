@@ -19,6 +19,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -65,12 +66,13 @@ fun HomeView(
         },
 //        backgroundColor = colorResource(id = R.color.black)
     ) {
+        val wishes = viewModel.getWishes.collectAsState(initial = listOf())
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
         ) {
-            items(DummyWish.wishes) { wish ->
+            items(wishes.value) { wish ->
                 WishItem(wish) {
 
                 }
