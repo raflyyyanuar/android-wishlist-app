@@ -22,9 +22,13 @@ fun Navigation(
                 navController = navController,
             )
         }
-        composable(Screen.AddScreen.route) { 
+        composable(Screen.AddScreen.route) {
+            viewModel.resetWishState()
+
+
+
             AddEditDetailView(
-                title = stringResource(id = R.string.add_wish),
+                id = 0L,
                 viewModel = viewModel, 
                 navController = navController 
             )

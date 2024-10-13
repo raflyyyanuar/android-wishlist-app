@@ -22,6 +22,11 @@ class WishViewModel(
         wishTitleState = newTitle
     }
 
+    fun resetWishState() {
+        wishTitleState = ""
+        wishDescriptionState = ""
+    }
+
     fun onWishDescriptionChange(newDescription: String) {
         wishDescriptionState = newDescription
     }
