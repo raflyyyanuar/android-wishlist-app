@@ -22,6 +22,11 @@ class WishViewModel(
         wishTitleState = newTitle
     }
 
+    fun onWishChange(wish : Wish) {
+        onWishTitleChange(wish.title)
+        onWishDescriptionChange(wish.description)
+    }
+
     fun resetWishState() {
         wishTitleState = ""
         wishDescriptionState = ""

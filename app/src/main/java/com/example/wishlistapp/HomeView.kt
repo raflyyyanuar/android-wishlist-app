@@ -51,7 +51,7 @@ fun HomeView(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    navController.navigate(Screen.AddScreen.route)
+                    navController.navigate( "${Screen.AddScreen.route}/0L")
                 },
                 modifier = Modifier
                     .padding(20.dp),
@@ -74,7 +74,8 @@ fun HomeView(
         ) {
             items(wishes.value) { wish ->
                 WishItem(wish) {
-
+                    val id = wish.id
+                    navController.navigate( "${Screen.AddScreen.route}/$id")
                 }
             }
         }
