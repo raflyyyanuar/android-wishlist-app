@@ -14,7 +14,7 @@ abstract class WishDao {
     abstract fun getWishes() : Flow<List<Wish>>
 
     @Query("SELECT * FROM `wish-table` WHERE id=:id")
-    abstract fun getWishById(id : Long) : Flow<List<Wish>>
+    abstract fun getWishById(id : Long) : Flow<Wish>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract suspend fun addWish(wishEntity : Wish)
