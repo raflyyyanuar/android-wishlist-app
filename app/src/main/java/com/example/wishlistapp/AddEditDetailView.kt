@@ -1,5 +1,6 @@
 package com.example.wishlistapp
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -10,15 +11,21 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Scaffold
+import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Button
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,6 +34,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.wishlistapp.data.Wish
+import kotlinx.coroutines.launch
 
 @Composable
 fun AddEditDetailView(
@@ -34,6 +42,11 @@ fun AddEditDetailView(
     viewModel: WishViewModel,
     navController: NavHostController
 ) {
+
+    val snackMessage = remember { mutableStateOf("") }
+    val scope = rememberCoroutineScope()
+    val scaffoldState = rememberScaffoldState()
+
     Scaffold(
         topBar = {
             AppBar(
@@ -42,7 +55,8 @@ fun AddEditDetailView(
                     navController.navigateUp()
                 }
             )
-        }
+        },
+        scaffoldState = scaffoldState,
     ) {
         Column(
             modifier = Modifier
@@ -79,11 +93,30 @@ fun AddEditDetailView(
                 if(viewModel.wishTitleState.isNotEmpty() &&
                     viewModel.wishDescriptionState.isNotEmpty()
                     ) {
+                    // TODO AddWish
+                    if(title.contains("add", true)) {
+                        viewModel.addWish(
+                            Wish(
+                                title = viewModel.wishTitleState.trim(),
+                                description = viewModel.wishDescriptionState.trim(),
+                            )
+                        )
+                        snackMessage.value = "Successfully added a wish!"
+                    }
                     // TODO UpdateWish
+                    else {
+
+                    }
+
                 }
                 else {
-                    // TODO AddWish
+                    snackMessage.value = "Title or description can not be empty!"
                 }
+
+                scope.launch {
+                    scaffoldState.snackbarHostState.showSnackbar(snackMessage.value)
+                }
+
             }) {
                 Text(
                     title,
