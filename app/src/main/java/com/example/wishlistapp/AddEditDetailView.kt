@@ -106,7 +106,7 @@ fun WishTextField(
         label = {
             Text(
                 label,
-                color = colorResource(id = R.color.black)
+                color = colorResource(id = R.color.gray)
             )
         },
         modifier = Modifier
@@ -115,18 +115,16 @@ fun WishTextField(
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
         colors = TextFieldDefaults.outlinedTextFieldColors(
             // text
-            textColor = colorResource(id = R.color.black),
+            textColor = colorResource(id = R.color.white),
 
-            // border
-            focusedBorderColor = colorResource(id = R.color.black),
-            unfocusedBorderColor = colorResource(id = R.color.black),
+            focusedBorderColor = colorResource(id = R.color.white),
+            focusedLabelColor = colorResource(id = R.color.white),
 
-            // label
-            focusedLabelColor = colorResource(id = R.color.black),
-            unfocusedLabelColor = colorResource(id = R.color.black),
+            unfocusedBorderColor = colorResource(id = R.color.gray),
+            unfocusedLabelColor = colorResource(id = R.color.gray),
 
-            // cursor
-            cursorColor = colorResource(id = R.color.black),
+            cursorColor = colorResource(id = R.color.gray),
+            backgroundColor = colorResource(id = R.color.dark_gray),
         )
     )
 }

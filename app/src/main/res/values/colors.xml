@@ -9,7 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="orange">#FF9000</color>
-    <color name="gray">#808080</color>
-    <color name="dark_gray">#151515</color>
-    <color name="dark_black">#1B1B1B</color>
+    <color name="gray">#6A6A6A</color>
+    <color name="dark_gray">#212121</color>
+    <color name="extra_dark_gray">#151515</color>
+    <color name="dark_black">#0E0E0E</color>
 </resources>
