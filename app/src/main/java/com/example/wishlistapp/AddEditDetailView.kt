@@ -38,7 +38,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun AddEditDetailView(
-    title: String,
+    id: Long,
     viewModel: WishViewModel,
     navController: NavHostController
 ) {
@@ -50,7 +50,7 @@ fun AddEditDetailView(
     Scaffold(
         topBar = {
             AppBar(
-                title = title,
+                title = if(id == 0L) "Add Wish" else "Edit Wish",
                 onBackNavClick = {
                     navController.navigateUp()
                 }
@@ -94,13 +94,15 @@ fun AddEditDetailView(
                     viewModel.wishDescriptionState.isNotEmpty()
                     ) {
                     // TODO AddWish
-                    if(title.contains("add", true)) {
+                    if(id == 0L) {
                         viewModel.addWish(
                             Wish(
                                 title = viewModel.wishTitleState.trim(),
                                 description = viewModel.wishDescriptionState.trim(),
                             )
                         )
+
+
                         snackMessage.value = "Successfully added a wish!"
                     }
                     // TODO UpdateWish
@@ -114,12 +116,12 @@ fun AddEditDetailView(
                 }
 
                 scope.launch {
-                    scaffoldState.snackbarHostState.showSnackbar(snackMessage.value)
+                    navController.navigateUp()
                 }
 
             }) {
                 Text(
-                    title,
+                    text = if(id == 0L) "Add Wish" else "Edit Wish",
                     fontSize = 18.sp,
                 )
             }
