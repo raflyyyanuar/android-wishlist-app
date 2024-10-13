@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,7 +18,6 @@ import androidx.compose.material.Card
 import androidx.compose.material.DismissDirection
 import androidx.compose.material.DismissValue
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FixedThreshold
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.FractionalThreshold
 import androidx.compose.material.Scaffold
@@ -30,12 +28,11 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.rememberDismissState
 import androidx.compose.material3.Icon
-import androidx.compose.material3.SwipeToDismissBoxValue
-import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
@@ -76,11 +73,12 @@ fun HomeView(
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = colorResource(id = R.color.black)
                 )
             }
         },
-//        backgroundColor = colorResource(id = R.color.black)
+        backgroundColor = colorResource(id = R.color.black)
     ) {
         val wishes = viewModel.getWishes.collectAsState(initial = listOf())
         LazyColumn(
@@ -119,7 +117,7 @@ fun HomeView(
                             ) {
                                 Text(text = "Swipe left to delete")
                                 Spacer(Modifier.width(4.dp))
-                                Icon(Icons.Default.Delete, contentDescription = "")
+                                Icon(Icons.Default.Delete, contentDescription = "", tint = Color.Black)
                             }
                         }
                     },

@@ -1,9 +1,7 @@
 package com.example.wishlistapp
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -34,7 +32,7 @@ fun Navigation(
             )
         ) { entry ->
 
-//            viewModel.resetWishState()
+            viewModel.resetWishState()
             val id = if(entry.arguments != null) entry.arguments!!.getLong("id") else 0L
 
             AddEditDetailView(
