@@ -68,8 +68,8 @@ fun HomeView(
                 },
                 modifier = Modifier
                     .padding(20.dp),
-                contentColor = colorResource(id = R.color.dark_black),
-                backgroundColor = colorResource(id = R.color.orange)
+                contentColor = colorResource(id = R.color.cream),
+                backgroundColor = colorResource(id = R.color.light_green)
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
@@ -78,7 +78,7 @@ fun HomeView(
                 )
             }
         },
-        backgroundColor = colorResource(id = R.color.black)
+        backgroundColor = colorResource(id = R.color.dark_green)
     ) {
         val wishes = viewModel.getWishes.collectAsState(initial = listOf())
         LazyColumn(
@@ -104,7 +104,7 @@ fun HomeView(
                                 .fillMaxSize()
                                 .padding(top = 8.dp, start = 8.dp, end = 8.dp),
                             elevation = 4.dp,
-                            backgroundColor = colorResource(id = R.color.orange),
+                            backgroundColor = colorResource(id = R.color.light_green),
                             shape = RoundedCornerShape(10.dp)
                         ) {
                             Row(
@@ -145,7 +145,7 @@ fun WishItem(
             .padding(top = 8.dp, start = 8.dp, end = 8.dp)
             .clickable { onClick() },
         elevation = 4.dp,
-        backgroundColor = colorResource(id = R.color.extra_dark_gray),
+        backgroundColor = colorResource(id = R.color.green),
         shape = RoundedCornerShape(10.dp)
     ) {
         Column(

@@ -13,4 +13,10 @@
     <color name="dark_gray">#212121</color>
     <color name="extra_dark_gray">#151515</color>
     <color name="dark_black">#0E0E0E</color>
+
+    <color name="dark_green">#1E201E</color>
+    <color name="green">#3C3D37</color>
+    <color name="light_green">#697565</color>
+    <color name="cream">#ECDFCC</color>
+
 </resources>

@@ -29,7 +29,7 @@ fun AppBar(
                 IconButton(onClick = { onBackNavClick() }) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
-                        tint = colorResource(id = R.color.orange),
+                        tint = colorResource(id = R.color.cream),
                         contentDescription = null
                     )
                 }
@@ -48,19 +48,13 @@ fun AppBar(
                         .heightIn(max = 24.dp),
                     fontWeight = FontWeight.ExtraBold
                 )
-                Spacer(modifier = Modifier.width(2.dp))
-                Card(
-                    backgroundColor = colorResource(id = R.color.orange)
-                ) {
-                    Text(
-                        "list",
-                        color = colorResource(id = R.color.black),
-                        modifier = Modifier
-                            .padding(horizontal = 3.dp)
-                            .heightIn(max = 24.dp),
-                        fontWeight = FontWeight.ExtraBold
-                    )
-                }
+                Text(
+                    "list",
+                    color = colorResource(id = R.color.cream),
+                    modifier = Modifier
+                        .heightIn(max = 24.dp),
+                    fontWeight = FontWeight.ExtraBold
+                )
             }
             else {
                 Text(
@@ -72,7 +66,7 @@ fun AppBar(
                 )
             }
         },
-        backgroundColor = colorResource(id = R.color.extra_dark_gray),
+        backgroundColor = colorResource(id = R.color.green),
         navigationIcon = navigationIcon,
         )
 }

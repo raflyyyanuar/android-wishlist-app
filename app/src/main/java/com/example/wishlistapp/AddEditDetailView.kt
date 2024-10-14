@@ -57,7 +57,7 @@ fun AddEditDetailView(
             )
         },
         scaffoldState = scaffoldState,
-        backgroundColor = colorResource(id = R.color.black)
+        backgroundColor = colorResource(id = R.color.dark_green)
     ) {
         Column(
             modifier = Modifier
@@ -124,16 +124,17 @@ fun AddEditDetailView(
                     }
                 },
                 colors = ButtonColors(
-                    containerColor = colorResource(id = R.color.orange),
-                    contentColor = colorResource(id = R.color.orange),
-                    disabledContainerColor = colorResource(id = R.color.orange),
-                    disabledContentColor = colorResource(id = R.color.orange),
+                    containerColor = colorResource(id = R.color.light_green),
+                    contentColor = colorResource(id = R.color.light_green),
+                    disabledContainerColor = colorResource(id = R.color.light_green),
+                    disabledContentColor = colorResource(id = R.color.light_green),
                 )
             ) {
                 Text(
                     text = if(id == 0L) "Add Wish" else "Edit Wish",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.ExtraBold,
+                    color = colorResource(id = R.color.white)
                 )
             }
         }
@@ -163,8 +164,8 @@ fun WishTextField(
             // text
             textColor = colorResource(id = R.color.white),
 
-            focusedBorderColor = colorResource(id = R.color.orange),
-            focusedLabelColor = colorResource(id = R.color.orange),
+            focusedBorderColor = colorResource(id = R.color.light_green),
+            focusedLabelColor = colorResource(id = R.color.light_green),
 
             unfocusedBorderColor = colorResource(id = R.color.gray),
             unfocusedLabelColor = colorResource(id = R.color.gray),
